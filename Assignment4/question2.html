@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Div Creation</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: white; 
+      font-family: Arial, sans-serif;
+    }
+
+    #container {
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    #container div {
+      border: 1px solid #000;
+      background-color: #e3f2fd;
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="container"></div>
+
+  <script>
+    function createDiv(width, height, text) {
+      const newDiv = document.createElement("div");
+      newDiv.style.width = width + "px";
+      newDiv.style.height = height + "px";
+      newDiv.textContent = text;
+      document.getElementById("container").appendChild(newDiv);
+    }
+
+    // Make function available globally
+    window.createDiv = createDiv;
+
+    // Example: call it to actually see output
+    createDiv(200, 100, "First Box");
+    createDiv(150, 80, "Second Box");
+    createDiv(300, 120, "Third Box");
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+
+<!--JS DOM Assignment - Dynamic - CSS-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dynamic CSS Task</title>
+  <style>
+    .text-here {
+      font-size: 55px;
+      font-family: sans-serif;
+      color: black;
+      text-decoration: none;
+      font-style: normal;
+      font-weight: normal;
+      line-height: normal;
+      text-align: left;
+      letter-spacing: normal;
+      word-spacing: normal;
+    }
+    .stylebt {
+      margin: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="text-here" id="text-container">This is some example text</div>
+
+  <input type="text" id="colorbox" placeholder="Enter color (e.g. red)">
+  <button id="colorchange">Change Colour</button>
+
+  <br><br>
+
+  <input type="range" id="fontsize" min="10" max="100" value="55">
+
+  <br><br>
+
+  <button id="italic" class="stylebt">Italics</button>
+  <button id="underline" class="stylebt">Underline</button>
+  <button id="bold" class="stylebt">Bold</button>
+
+  <br><br>
+
+  <select id="list">
+    <option value="serif">Serif</option>
+    <option value="sans-serif" selected>Sans-Serif</option>
+    <option value="monospace">Monospace</option>
+    <option value="cursive">Cursive</option>
+    <option value="fantasy">Fantasy</option>
+  </select>
+
+  <br><br>
+
+  <button id="getstyle">Get CSS</button>
+
+  <br><br>
+  <p id="css-props"></p>
+
+  <script>
+    const text = document.getElementById("text-container");
+    const colorBox = document.getElementById("colorbox");
+    const fontSizeSlider = document.getElementById("fontsize");
+    const cssProps = document.getElementById("css-props");
+
+    
+    document.getElementById("colorchange").addEventListener("click", () => {
+      text.style.color = colorBox.value;
+    });
+
+    fontSizeSlider.addEventListener("input", () => {
+      text.style.fontSize = fontSizeSlider.value + "px";
+    });
+
+    
+    document.getElementById("italic").addEventListener("click", () => {
+      text.style.fontStyle = (text.style.fontStyle === "italic") ? "normal" : "italic";
+    });
+
+
+    document.getElementById("underline").addEventListener("click", () => {
+      text.style.textDecoration = (text.style.textDecoration === "underline") ? "none" : "underline";
+    });
+
+    
+    document.getElementById("bold").addEventListener("click", () => {
+      text.style.fontWeight = (text.style.fontWeight === "bold") ? "normal" : "bold";
+    });
+
+
+    document.getElementById("list").addEventListener("change", (e) => {
+      text.style.fontFamily = e.target.value;
+    });
+    document.getElementById("getstyle").addEventListener("click", () => {
+      let styles = `
+        color: ${text.style.color || "black"};
+        font-size: ${text.style.fontSize || "55px"};
+        font-family: ${text.style.fontFamily || "sans-serif"};
+        text-decoration: ${text.style.textDecoration || "none"};
+        font-style: ${text.style.fontStyle || "normal"};
+        font-weight: ${text.style.fontWeight || "normal"};
+      `;
+      cssProps.textContent = styles.trim();
+    });
+  </script>
+</body>
+</html>

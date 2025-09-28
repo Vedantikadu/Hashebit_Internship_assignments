@@ -1,0 +1,180 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Forest Theme Layout</title>
+  <style>
+    :root{
+      --accent:#166534; /* forest green */
+      --muted:#374151;
+      --bg:linear-gradient(to bottom, #e6f4ea, #f0fdf4); /* leafy background */
+      --card:#ffffff;
+      --gap:16px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:#111}
+
+    .page{
+      max-width:1100px;
+      margin:24px auto;
+      background:rgba(255,255,255,0.9);
+      border-radius:12px;
+      box-shadow:0 6px 20px rgba(2,6,23,0.1);
+      overflow:hidden;
+    }
+
+    /* HEADER */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:18px 20px;
+      background:#d9f99d; /* light green */
+      gap:var(--gap);
+      position:sticky;
+      top:0;
+      z-index:100;
+      box-shadow:0 2px 8px rgba(0,0,0,0.05);
+    }
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo img{width:48px;height:48px;border-radius:8px;object-fit:cover;transition:transform 0.3s}
+    .logo img:hover{transform:rotate(-8deg) scale(1.1)}
+    .brand{font-weight:700;font-size:18px;color:var(--accent)}
+    .social{display:flex;gap:10px;align-items:center}
+    .social a{text-decoration:none;color:var(--muted);font-size:14px;transition:color 0.3s}
+    .social a:hover{color:var(--accent)}
+
+    nav.menubar{
+      display:flex;justify-content:center;background:var(--accent);padding:8px 12px
+    }
+    nav.menubar ul{list-style:none;display:flex;gap:18px;margin:0;padding:0}
+    nav.menubar a{color:white;text-decoration:none;padding:8px 12px;border-radius:6px;font-weight:600;transition:background 0.3s}
+    nav.menubar a:hover{background:rgba(255,255,255,0.25)}
+
+    /* LAYOUT */
+    .layout{padding:20px}
+
+    .grid-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .card{
+      background:var(--card);
+      padding:14px;
+      border-radius:10px;
+      box-shadow:0 2px 10px rgba(34, 139, 34, 0.2);
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      transition:transform 0.3s, box-shadow 0.3s;
+      cursor:pointer;
+      position:relative;
+      overflow:hidden;
+      border:2px solid #bbf7d0; /* pale green border */
+    }
+    .card:hover{transform:translateY(-6px) scale(1.03);box-shadow:0 12px 22px rgba(22,101,52,0.25)}
+    .card img{width:100%;height:140px;object-fit:cover;border-radius:6px}
+    .card h4{margin:0;font-size:16px;color:var(--accent)}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+
+    footer{
+      background:#d9f99d;
+      padding:12px 20px;
+      text-align:center;
+      color:var(--muted);
+      font-size:14px;
+      transition:background 0.3s;
+    }
+    footer:hover{background:#bef264}
+
+    @media (max-width:900px){
+      .grid-cards{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:560px){
+      nav.menubar ul{gap:8px}
+      .grid-cards{grid-template-columns:1fr}
+      header{flex-direction:column;align-items:stretch}
+      .social{justify-content:flex-end}
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- HEADER -->
+    <header>
+      <div class="logo">
+        <img src="https://picsum.photos/80?random=10" alt="Leaf logo">
+        <div>
+          <div class="brand">Forest World</div>
+          <div style="font-size:12px;color:var(--muted)">Nature & Web</div>
+        </div>
+      </div>
+      <div class="social" aria-label="social links">
+        <a href="#" title="GitHub">GitHub</a>
+        <a href="#" title="LinkedIn">LinkedIn</a>
+        <a href="#" title="Instagram">Instagram</a>
+      </div>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav class="menubar" aria-label="Primary navigation">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">Nature</a></li>
+        <li><a href="#services">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- CONTENT -->
+    <div class="layout">
+      <main>
+        <section class="grid-cards" aria-label="Four content boxes">
+          <article class="card" onclick="showMessage('Exploring Forest Trails!')">
+            <img src="C:\Users\kaduv\Downloads\Forest_path_and_trees.jpg" alt="Forest path">
+            <h4>Forest Trails</h4>
+            <p>Discover the beauty of hidden paths surrounded by trees.</p>
+          </article>
+
+          <article class="card" onclick="showMessage('Wildlife Adventures!')">
+            <img src="C:\Users\kaduv\Downloads\Wildlife_at_Maasai_Mara_(Lion).jpg" alt="Wildlife">
+            <h4>Wildlife</h4>
+            <p>Experience diverse wildlife in their natural habitats.</p>
+          </article>
+
+          <article class="card" onclick="showMessage('Camping under the stars!')">
+            <img src="C:\Users\kaduv\Downloads\camping.jpg" alt="Camping">
+            <h4>Camping</h4>
+            <p>Enjoy starry nights and campfires deep in the forest.</p>
+          </article>
+
+          <article class="card" onclick="showMessage('Waterfalls & Rivers!')">
+            <img src="C:\Users\kaduv\Downloads\waterfall.jpg" alt="Waterfall">
+            <h4>Waterfalls</h4>
+            <p>Relax by serene rivers and breathtaking waterfalls.</p>
+          </article>
+        </section>
+        <p id="message" style="margin-top:20px;font-weight:600;color:var(--accent)"></p>
+      </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      © <span id="year"></span> Forest World — Living with Nature 🌿
+    </footer>
+
+  </div>
+
+  <script>
+    // set current year automatically
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // replace alert with message display
+    function showMessage(msg){
+      document.getElementById('message').innerText = msg;
+    }
+  </script>
+</body>
+</html>

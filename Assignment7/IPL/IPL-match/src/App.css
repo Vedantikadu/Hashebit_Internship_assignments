@@ -1,0 +1,15 @@
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 96vh;
+    flex-direction: column;
+    border: 2px solid black;
+}
+
+.table {
+    border-collapse: collapse;
+    text-align: center;
+}
