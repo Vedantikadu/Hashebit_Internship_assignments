@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Forest Theme</title>
+  <style>
+    :root{
+      --accent:#2e7d32;   /* Deep forest green */
+      --muted:#4e5b50;    /* Muted earthy tone */
+      --bg:#e8f5e9;       /* Light leafy background */
+      --card:#ffffff;     /* White card for contrast */
+      --gap:16px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:#111}
+
+    .page{
+      max-width:1200px;
+      margin:24px auto;
+      background:linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,1));
+      border-radius:12px;
+      box-shadow:0 6px 20px rgba(2,6,23,0.08);
+      overflow:hidden;
+    }
+
+    /* HEADER */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:18px 20px;
+      background:var(--card);
+      border-bottom:2px solid #c8e6c9;
+    }
+    .logo img{width:52px;height:52px;border-radius:50%;object-fit:cover}
+
+    /* HERO BANNER */
+    .hero{
+      background:linear-gradient(135deg,#2e7d32,#1b5e20);
+      color:white;
+      text-align:center;
+      padding:60px 20px;
+    }
+    .hero h1{font-size:36px;margin:0 0 12px;font-weight:700}
+    .hero p{margin:0;font-size:18px;opacity:0.9}
+
+    /* LAYOUT */
+    .layout{padding:20px}
+
+    /* MAIN GRID */
+    main{min-height:280px}
+    .grid-cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); /* narrower boxes */
+      gap:20px;
+      justify-content:center;
+    }
+    .card{
+      background:var(--card);
+      padding:14px;
+      border-radius:10px;
+      box-shadow:0 2px 8px rgba(2,6,23,0.05);
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      transition:transform 0.3s, box-shadow 0.3s;
+      cursor:pointer;
+      border:1px solid #c8e6c9;
+      max-width:260px;   /* keep cards from stretching too wide */
+      margin:auto;
+    }
+    .card:hover{
+      transform:translateY(-8px) scale(1.03);
+      box-shadow:0 10px 25px rgba(46,125,50,0.25)
+    }
+    .card img{
+      width:100%;
+      height:220px;       /* taller images */
+      object-fit:cover;
+      border-radius:8px
+    }
+    .card h4{margin:0;font-size:18px;color:#1b5e20;text-align:center}
+    .card p{margin:0;color:var(--muted);font-size:14px;line-height:1.5;text-align:center}
+
+    /* FOOTER */
+    footer{
+      background:var(--card);
+      padding:14px 20px;
+      text-align:center;
+      color:var(--muted);
+      font-size:14px;
+      border-top:1px solid #c8e6c9
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- HEADER -->
+    <header>
+      <div class="logo">
+        <img src="forest-logo.jpg" alt="Forest Logo">
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1>Explore the Forest</h1>
+      <p>Discover nature’s beauty through paths, waterfalls, and wildlife 🌲</p>
+    </section>
+
+    <!-- CONTENT LAYOUT -->
+    <div class="layout">
+      <main>
+        <section class="grid-cards">
+
+          <article class="card">
+            <img src="C:\Users\kaduv\Downloads\waterfall.jpg" alt="Waterfall">
+            <h4>Waterfall</h4>
+            <p>Experience the refreshing beauty of cascading forest waterfalls.</p>
+          </article>
+
+          <article class="card">
+            <img src="C:\Users\kaduv\Downloads\camping.jpg" alt="Forest Campaign">
+            <h4>Forest Campaign</h4>
+            <p>Immerse yourself in serene forest campaigns surrounded by nature.</p>
+          </article>
+
+          <article class="card">
+            <img src="C:\Users\kaduv\Downloads\Forest_path_and_trees.jpg" alt="Forest Paths">
+            <h4>Forest Paths & Roads</h4>
+            <p>Wander along winding forest paths and scenic roads.</p>
+          </article>
+
+          <article class="card">
+            <img src="C:\Users\kaduv\Downloads\Wildlife_at_Maasai_Mara_(Lion).jpg" alt="Wildlife">
+            <h4>Wildlife</h4>
+            <p>Discover the diverse wildlife that thrives in the forest ecosystem.</p>
+          </article>
+
+        </section>
+      </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      © <span id="year"></span> Forest Theme — All rights reserved.
+    </footer>
+
+  </div>
+
+  <script>
+    // set current year automatically
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
